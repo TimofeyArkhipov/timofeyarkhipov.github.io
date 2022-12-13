@@ -1,0 +1,219 @@
+.video-block{
+    position: relative;
+    margin-top: em(430px, $fz-base);
+    .gradient{
+        bottom: -50%;
+        z-index: 10;
+    }
+
+    &__girl, &__man{
+        position: absolute;
+        bottom:0;
+        z-index: 5;
+    }
+    &__girl{
+         
+            // top: 31.4%;
+            width: 68em;
+            left:0em;
+    }
+    &__man{
+        // top: 33.5%;
+        width: 62em;
+        right: -10em;
+    }
+
+
+    &__text {
+        z-index: 20;
+        width: 100%;
+        text-align: center;
+        font-size: em(32px, $fz-base);
+        font-family: 'Fjalla One';
+        text-transform: uppercase;
+        position: relative;
+        // margin-top: em(0px, $fz-base);
+        margin-bottom:  em(30px, $fz-base);
+    }
+
+    &__wrap {
+        position: relative;
+        z-index: 10;
+        // margin-top: em(100px, $fz-base);
+        width: 54em;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        // padding-bottom: -2em;
+        .monitor{
+            margin: 0 auto;
+        }
+    }
+
+    &__play{
+        position: absolute;
+        width: 12em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        cursor: pointer;
+        img{
+            width: 100%;
+            animation: playBtn 3s infinite ease-in-out;
+        }
+    }
+
+    // &__popup {
+    //     display: none;
+    // }
+
+
+
+    &__popup {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, .3);
+        padding: em(20px, 16px);
+        opacity: 0;
+        transition: .3s;
+        visibility: hidden;
+
+        .video-block__wrap {
+            display: none;
+        }
+
+        &.open {
+            transition: .3s;
+            visibility: visible;
+            opacity: 1;
+
+            .video-block__wrap {
+                display: block;
+                max-width: 68.75em;
+                width: 100%;
+                height: 39.375em;
+            }
+
+            & svg,
+            & iframe {
+                transform: scale(1);
+                transition: .3s;
+            }
+        }
+
+        & svg {
+            cursor: pointer;
+            width: em(35px, 16px);
+            height: auto;
+            transform: scale(0);
+        }
+
+        & iframe {
+            margin-top: em(20px, 16px);
+            max-width: em(1100px, 16px);
+            width: 100%;
+            height: em(630px, 16px);
+            border-radius: em(10px, 16px);
+            transform: scale(0);
+        }
+    }
+
+    &__close {
+        left: calc(50% + 31.8em);
+        position: absolute;
+        z-index: 1;
+        top: calc(50% - 22.1em);
+        transition: all .3s ease-in-out;
+        @media(max-width:500px){
+            left: calc(30% + 31.8em);
+        }
+    }
+
+
+	@media (max-width: 1500px){
+		// width: 70%;
+        // margin-top: 15.875em;
+        // &__text{
+        //     margin-bottom: 11.875em;
+        // }
+        font-size: em(10px, $fz-base);
+        
+    //    &__girl{
+    //     width: 68em;
+    //     }
+
+    //     &__men{
+    //         width: 62em;
+    //         right: -20em;
+    //     }
+	}
+	@media (max-width: 1200px){
+        font-size: em(8px, $fz-base);
+
+        &__wrap{
+            // width: 50%;
+            // margin: 0 auto;
+        }
+	}
+
+	@media (max-width: 768px){
+        font-size: em(5px, $fz-base);
+	}
+
+
+	@media (max-width: 500px){
+        font-size: em(7.2px, $fz-base);
+        margin-top: 20em;
+        &__text{
+            margin-bottom: 10em;
+            font-size: em(60px, $fz-base);
+        }
+        &__girl{
+            width: 68em;
+            left: -5em;
+        }
+
+        &__men{
+            right: -10em;
+        }
+	}
+
+        
+	@media (max-width: 350px){
+        font-size: em(6px, $fz-base);
+        &__girl{
+            width: 68em;
+            left: -10em;
+        }
+        .video-block__man{
+            right: -12em;
+        }
+
+        &__wrap{
+            width: 80%;
+        }
+	}
+
+}
+
+
+@keyframes playBtn{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

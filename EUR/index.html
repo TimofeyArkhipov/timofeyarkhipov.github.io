@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=contain">
+    <title></title>
+    <link rel="stylesheet" href="./public/css/simplebar.css">
+    <link rel="stylesheet" href="./public/css/style.min.css">
+  </head>
+  <body>
+    <div class="body-wrap">
+      <div class="blow-block">
+        <div class="blow-block__blow"><img class="desck" src="public/img/blow.png" alt=""><img class="mob" src="public/img/blow-mob.png" alt=""></div>
+        <div class="blow-block__man"><img src="public/img/man.png" alt=""></div>
+        <div class="blow-block__ball"><img src="public/img/ball.png" alt=""></div>
+      </div>
+      <div class="container"> 
+        <div class="top-block"> 
+          <div class="top-block__logo"> <a href="#"> <img src="public/img/logo.png" alt=""></a></div>
+          <div class="top-block__18">
+            <div>18+</div>
+          </div>
+        </div>
+        <div class="promotional-block">
+          <div class="promotional-block__money">€30 </div>
+          <div class="promotional-block__text">for new players</div>
+        </div>
+        <form class="form" id="formReg">
+          <div class="form-container">
+            <div class="form__title">Enter your phone number</div>
+            <div class="form__input-wrap form__input-wrap--tel">
+              <input class="form__input" id="tel_desk" type="text" autocomplete="off" maxLength="16" inputmode="numeric" mask="" name="telno" data-name="tel" data-mask="ru" data-valid="false" required="" placeholder=""><span>Enter correct phone number </span>
+            </div>
+            <div class="form__submit">
+              <button class="form__submit-btn" disabled=""><span>get a bonus</span></button>
+            </div>
+            <div class="rules"><a class="rules__link">Full rules</a></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-wrap">
+        <div class="modal">
+          <div class="close"><img src="./public/img/close.svg"></div>
+          <div class="modal_header">
+            <h2>
+               Full rules of the promotion "Bonus for new players"<br></h2>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script src="./public/js/imask.js"></script>
+    <script>
+      function maskInput() {
+      var element = document.getElementById("tel_desk");
+      var maskOptions = {
+          //- mask: "+[]",
+          mask: '{+}`000000000[0000]',
+          lazy: false,
+          placeholderChar: "*",
+      
+      
+          from: 9,
+          to: 90,
+          
+          maxLength: 3,
+          autofix: true,  // bound value
+
+          };
+      
+      window.maskRu = IMask(element, maskOptions);
+      
+      }
+      
+      maskInput();
+    </script>
+    <script src="./public/js/simplebar.min.js"></script>
+    <script src="./public/js/main.min.js"></script>
+  </body>
+</html>

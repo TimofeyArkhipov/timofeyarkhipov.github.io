@@ -1,0 +1,24 @@
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: 'PT Sans';
+    font-weight: bold;
+    font-style: normal;
+    font-size: $text-size;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 2px;
+    transition: all .4s;
+    padding: 0.92em 0;
+    width: 300px;
+    text-transform: uppercase;
+    &__primary {
+        background: $bg-color;
+        color: $main-color;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        &:hover {
+            background: rgba(233, 120, 120, 0.36);
+        }
+    }
+}

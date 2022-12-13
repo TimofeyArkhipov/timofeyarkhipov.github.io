@@ -1,0 +1,199 @@
+- var title = "Looklie | MODERN DATING OF YOUR AREA";
+doctype html
+html
+	include includes/head
+	body
+		.body-wrap
+
+			header.header
+				.container
+					a.logo(href="index.html")
+						img(src="./public/img/logo-white.svg", alt="")
+					form.form.form--login#login
+						.form__hidden-fields
+							.cross
+								img(src="./public/img/icons/cross.svg", alt="")
+							h3.title Login
+							.form__wrap
+								.form__row.form__row--half
+									input(type="email", data-name="email" name="email-login", placeholder="E-mail", required)
+								.form__row.form__row--half
+									input(type="password", name="pass-login", placeholder="Password", required)
+								.form__row.form__row--half.form__checkbox
+									label.checkbox__wrap(for="checkbox-login") 
+										input(id="checkbox-login", name="checkbox-login", type="checkbox", required)
+										span.checkbox
+										| Remember me
+							button.btn.btn__primary.hide__submit Sign in
+						button.btn.btn__primary.toggle__submit Login
+
+			section.main
+				.main__content.container.container--align
+
+					.main__info
+						h2.title
+							| MODERN DATING
+							br 
+							| OF YOUR AREA
+						h3.subtitle.subtitle--bold
+							span.lines
+								img(src="./public/img/icons/lines.svg", alt="")
+							| Casual, Stylish, Advanced
+						.main__form
+							form.form.form--reg
+								.form__genders
+									.gender
+										p.gender__text 
+											| You are
+											| 
+											span.value(id="you-value") Male
+										.gender__wrap
+											.gender__btn
+												input(id="you-male", type="radio" name="your-gender" value="Male" checked="")
+												label(for="you-male")
+													include includes/_male-svg
+											.gender__btn
+												input(id="you-female", type="radio" name="your-gender" value="Female")
+												label(for="you-female")
+													include includes/_female-svg
+									.gender
+										p.gender__text 
+											| Looking for
+											| 
+											span.value(id="look-value") Female
+										.gender__wrap
+											.gender__btn
+												input(id="look-male", type="radio" name="look-gender" value="Male")
+												label(for="look-male")
+													include includes/_male-svg
+											.gender__btn
+												input(id="look-female", type="radio" name="look-gender" value="Female" checked="")
+												label(for="look-female")
+													include includes/_female-svg
+								.form__hidden-fields
+									.form__wrap
+										.form__row
+											input(type="email", data-name="email", name="email-reg", placeholder="E-mail", required)
+										.form__row
+											input(type="password", name="pass-reg", placeholder="Password", required)
+										.form__row
+											.select-wrap
+												select.select.age(required)
+													option(selected, disabled, hidden) Age
+								.form__row
+									button.btn.btn__primary LOOK FOR A NEW MATE
+							.form__hidden-fields
+								p.form__desc
+									| You must be at least
+									| 
+									span eighteen (18) years old
+									| 
+									| to register as a member of Service and use the Website. By signing up. you agree to our
+									| 
+									a(href="#") Term and Use,
+									| 
+									a(href="#") Privacy Policy,
+									| 
+									| sign up for newsletters and agree to receive messages.
+
+			section.people
+				.people__content.container.container--align
+					h2.title
+						| MOST POPULAR USERS OF THE LAST MONTH
+				.people__slider
+					.people__slider_item
+						.people__slider_photo
+							img(src="./public/img/users/1.png", alt="")
+						.people__slider_geo John, Switzerland
+					.people__slider_item
+						.people__slider_photo
+							img(src="./public/img/users/2.png", alt="")
+						.people__slider_geo Ann, German
+					.people__slider_item
+						.people__slider_photo
+							img(src="./public/img/users/3.png", alt="")
+						.people__slider_geo Miley, USA
+					.people__slider_item
+						.people__slider_photo
+							img(src="./public/img/users/4.png", alt="")
+						.people__slider_geo Alejandro, Spain
+
+			section.statistics
+				.statistics__content.container.container--align
+					h2.title
+						| Where do Lookliers mostly live?
+					.values
+						.values__item
+							h3.values__digit
+								| 41
+								span.small %
+							p.values__text
+								| United States
+						.values__item
+							h3.values__digit
+								| 46
+								span.small %
+							p.values__text
+								| North, East & South 
+								br
+								| of Europe
+						.values__item
+							h3.values__digit
+								| 13
+								span.small %
+							p.values__text
+								| Other Countries
+
+			section.welcome
+				.welcome__content.container
+					.welcome__text
+						h2.title
+							| Tired of standard sites? 
+							br 
+							| Try to look from another angle
+						.welcome__photo
+							img(src="./public/img/photo.png", alt="")
+					.line
+					.benefits
+						.benefits__item
+							.benefits__icon
+								img(src="./public/img/icons/map.svg", alt="")
+							p.benefits__text 
+								| Tier-1 countries users 
+								br
+								| mostly
+						.benefits__item
+							.benefits__icon
+								img(src="./public/img/icons/membership.svg", alt="")
+							p.benefits__text 
+								| Lifetime Membership for Free 
+						.benefits__item
+							.benefits__icon
+								img(src="./public/img/icons/web-plugin.svg", alt="")
+							p.benefits__text 
+								| Additional features for
+								br
+								| serious intentions
+						.benefits__item
+							.benefits__icon
+								img(src="./public/img/icons/safe-box.svg", alt="")
+							p.benefits__text 
+								| Safe and simple
+					
+			section.video
+				.video__wrap
+					video(loop, muted, autoplay)
+						source(src='./public/video/video.mp4?v=1')
+					.video__content.container.container--align
+						h3.text
+							| You are the average of the five people you spend the most time with. Be smart.
+							br
+							| Choose your environment at Looklie
+						button.btn.btn__primary.btn__top LOOK AT LOOKLIE
+
+
+			include includes/_footer
+						
+
+
+		include includes/foot

@@ -1,0 +1,95 @@
+- var title = "Looklie | MODERN DATING OF YOUR AREA";
+doctype html
+html
+    include includes/head
+    body
+        .body-wrap
+            header.header__payment
+                .container
+                    a.logo(href="index.html")
+                        img(src="./public/img/logo-black.svg", alt="")
+                    .header__payment--align
+                    h3.subtitle.subtitle--bold Activate your Premium Account
+                    p.subtitle.subtitle--spacing SAFE AND DISCREET
+
+
+            section.payments
+                .payments__container.container
+                    .payments__form
+                        .payments__form_head
+                            h3.subtitle Secure Payment Info
+                        .payments__form_body
+                            img(src="./public/img/dummy.png")
+                        .payments__form_desc
+                            span.ico
+                                img(src="./public/img/icons/lock.svg")
+                            p.text 100% Secure Website Membership
+                    .payments__wrap
+                        .payments__info
+                            h3.title Subscribe to Access the Trial Membership
+                            .payments__info_wrap
+                                .payments__text
+                                    p.text (*) You get a free 5 day(s) membership to dating-masters.com. Membership renews at $39.99 every 30 day(s).
+                                    p.text We will make a small $0.99 charge to your card. The charge will be refunded to your card within 7 business days. 
+                                    p.text This charge will appear on your cardholder statement as *DESCRIPTOR*.
+                                        |
+                                        iframe(width="0", height="0")
+                                    p.text If you would like to cancel your membership, you can do it anytime here *DESCRIPTOR*
+                                        |
+                                        iframe(width="0", height="0")
+                                        |
+                                        | or in the Billing section in the website Settings.
+                                .payments__icons
+                                    .payments__icons_item
+                                        img(src="./public/img/icon_identity.png")
+                                    .payments__icons_item
+                                        img(src="./public/img/icon_security.png")
+                            .gold
+                                .gold__wrap
+                                    label.gold__checkbox.checkbox__wrap(for="bonus-check")
+                                        input(type="checkbox" name="bonus-check" id="bonus-check")
+                                        span.checkbox
+                                        | Add GOLD status to your premium account
+                                    .gold__info
+                                        ul.star-list
+                                            li Access to TOP-users
+                                            li Add users’ profiles to Contacts
+                                            li Make your messages read first
+                                        p.info
+                                            strong Bonus offer - 3 day free
+                                            |
+                                            | access to
+                                            br
+                                            | GOLD status features, renews monthly
+                                            br
+                                            | at $29.99 until cancelled.
+                            label.checkbox__wrap(for="terms-check") 
+                                input(type="checkbox" name="terms-check" id="terms-check")
+                                span.checkbox
+                                | By submitting this form, I certify that I am 18 years of age or older and that I agree 
+                                br
+                                | to the 
+                                | 
+                                a(href="#") Terms & Conditions
+                                | 
+                                | and have read the 
+                                | 
+                                a(href="#") Privacy Policy.
+                                    
+                        .include
+                            h2.subtitle.subtitle--spacing Premium Membership Benefits:
+                            ul.include__wrap
+                                li.text
+                                    | Unlimited messaging
+                                li.text
+                                    | View who likes and visits your profile
+                                li.text
+                                    | Access to the most active users
+                                li.text
+                                    | Receive more visits, messages, likes
+                                li.text
+                                    | Get unlimited access to photos
+                                li.text
+                                    | Bring your messages to the top
+            include includes/_footer
+        include includes/foot

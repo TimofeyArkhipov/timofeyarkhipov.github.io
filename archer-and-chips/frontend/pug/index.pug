@@ -1,0 +1,25 @@
+- var title = "";
+
+doctype html
+html
+	include includes/head
+	body
+		.body-wrap
+			.castle
+				.gradient
+				img(src="public/img/q.png", data='2' alt="").castle-img.mousemove
+			.mountains
+				img(src="public/img/m.png",  data='3' alt="").mountains-img.mousemove
+			.fire-wrap1 
+				//- div(id="sparks1")
+			include page_parts/header
+			include page_parts/main
+			include page_parts/video
+			include page_parts/icons
+			.fire-wrap2 
+				//- div(id="sparks2")
+			//- include page_parts/footer
+			include page_parts/payments
+			include page_parts/elements
+					
+		include includes/foot

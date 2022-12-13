@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.465960a3.chunk.css",
+    "main.js": "./static/js/main.238964b8.chunk.js",
+    "main.js.map": "./static/js/main.238964b8.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.7292f150.js",
+    "runtime-main.js.map": "./static/js/runtime-main.7292f150.js.map",
+    "static/js/2.ddb2fcad.chunk.js": "./static/js/2.ddb2fcad.chunk.js",
+    "static/js/2.ddb2fcad.chunk.js.map": "./static/js/2.ddb2fcad.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.465960a3.chunk.css.map": "./static/css/main.465960a3.chunk.css.map",
+    "static/js/2.ddb2fcad.chunk.js.LICENSE.txt": "./static/js/2.ddb2fcad.chunk.js.LICENSE.txt",
+    "static/media/GameA.a4704621.mp3": "./static/media/GameA.a4704621.mp3",
+    "static/media/Loose.9ef9b712.mp3": "./static/media/Loose.9ef9b712.mp3",
+    "static/media/index.css": "./static/media/Pixel-LCD-7.63d9c151.woff",
+    "static/media/battle-city-sfx-6.58267227.mp3": "./static/media/battle-city-sfx-6.58267227.mp3",
+    "static/media/bg.77a5e04e.jpg": "./static/media/bg.77a5e04e.jpg",
+    "static/media/sfx-10.596fde99.mp3": "./static/media/sfx-10.596fde99.mp3",
+    "static/media/sfx-3.64e0d371.mp3": "./static/media/sfx-3.64e0d371.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7292f150.js",
+    "static/js/2.ddb2fcad.chunk.js",
+    "static/css/main.465960a3.chunk.css",
+    "static/js/main.238964b8.chunk.js"
+  ]
+}

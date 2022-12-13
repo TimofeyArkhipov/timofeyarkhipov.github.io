@@ -1,0 +1,17 @@
+:root {
+    --bg-color: #FAFAFA;
+    --text-color: #1D1D1D;
+    --main-color: #8C1313;
+    --accent-color: #3F114A;
+    --sub-bg-color: #F4F4F4;
+    --text-size: 16px;
+    --sm-text-size: 14px;
+}
+
+$bg-color: var(--bg-color);
+$text-color: var(--text-color);
+$main-color: var(--main-color);
+$accent-color: var(--accent-color);
+$sub-bg-color: var(--sub-bg-color);
+$text-size: var(--text-size);
+$sm-text-size: var(--sm-text-size);
