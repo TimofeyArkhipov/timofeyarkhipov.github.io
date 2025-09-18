@@ -1,0 +1,139 @@
+@mixin main-button{
+    font-family: 'Roboto';
+    font-size: rem(19.2);
+    border-radius: 40px;
+    padding: rem(8) rem(24);
+    background: linear-gradient(106deg, #6E96F0 0%, #3633D0 100%);
+    border: 0px;
+    color: #fff;
+}
+
+
+.main{
+    &__trending {
+        margin-top: 10rem;
+        @media(max-width:500px){
+            margin-top: 5rem;
+        }
+    }
+
+    &__midlle-text-block {
+        display: flex;
+        @media (max-width:500px){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__title-middle{
+        width: 50%;
+        font-size: rem(59);
+        font-family: 'Poppins';
+        font-weight: 600;
+        @media(max-width:500px){
+            width: 80%;
+            font-size: rem(50);
+        }
+    }
+    &__text-middle{
+        width: 50%;
+        font-family: 'GT Walsheim Pro';
+        font-size: rem(24);
+        opacity: 0.5;
+        @media(max-width:1300px){
+            // width: auto;
+            margin-left: rem(-30);
+        }
+        @media(max-width:500px){
+            width: 90%;
+            margin-left: rem(0);
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__products{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: rem(90);
+        margin: 5.625rem 6.1875rem 0 6rem;
+        @media(max-width:1024px){
+            flex-direction: column;
+            align-items: center;
+            margin: 5rem 6rem;
+        }
+        @media(max-width:500px){
+            margin: 0;
+        }
+    }
+
+    &__product-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: rem(90);
+
+    }
+
+    &__product-img{
+        width: rem(450);
+        img{
+            width: 100%;
+        }
+    }
+
+
+    &__product-info{
+        backdrop-filter: blur(10px);
+        border: 2px solid #a2a5aa;
+        width: rem(500);
+        border-radius: 10px;
+        margin-top: rem(-60);
+        display: flex;
+        justify-content: space-between;
+        padding: rem(12) rem(24);
+        display: flex;
+        align-items: center;
+    } 
+
+    &__product-name{
+        font-family: 'Roboto';
+        font-size: rem(25.7);
+        font-weight: 500;
+    }
+
+    &__product-tag{
+        font-family: 'Roboto';
+        font-size: 300;
+        opacity: 0.5;
+        margin-bottom: rem(7);
+    }
+
+    &__product-price{
+        font-family: 'Roboto';
+        font-weight: 600;
+        font-size: rem(20);
+        background: -webkit-linear-gradient(45deg, #FF8D8D, #F7FC0E);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__product-button{
+        font-family: 'Roboto', sans-serif;
+        font-size: rem(19.2);
+        border-radius: 40px;
+        padding: rem(8) rem(24);
+        color: #fff;
+        box-shadow: 0 0 6px 0 rgba(69, 42, 94, 0.5);
+        border: solid 3px transparent;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(106deg, #6E96F0 0%, #3633D0 100%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 2px 1000px 1px #1b1835 inset;
+        transition: 0.3s;
+        &:hover{
+            transition: 0.3s;
+          box-shadow: none;
+          color: white;
+        }
+    }
+}

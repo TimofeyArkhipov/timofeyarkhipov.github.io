@@ -1,0 +1,77 @@
+.main{
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    &__discover {
+        display: flex;
+        margin-top: 11.8125rem;
+        @media (max-width:1024px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        @media (max-width:1024px) {
+            width: 100%;
+            align-items: center;
+        }
+    }
+    &__title-top{
+        font-family: 'Inter', sans-serif;
+        font-size: rem(66.7);
+        font-weight: 600;
+        letter-spacing: 1px;
+        span{
+            background: -webkit-linear-gradient(45deg, #FF8D8D, #F7FC0E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @media (max-width:1024px) {
+            width: 70%;
+            text-align: center;
+            align-items: center;
+        }
+    }
+    &__top-text {
+        max-width: 34.6rem;
+        font-size: rem(16.3);
+        font-family: 'Inter', sans-serif;
+        margin-top: rem(30);
+        font-weight: 500;
+        line-height: 152%;
+        letter-spacing: 0.4px;
+    }
+
+    &__buttons-block {
+        display: flex;
+        margin-top: rem(38);
+        button{
+            font-family: 'Roboto';
+            font-size: rem(19.2);
+            border-radius: 40px;
+            padding: rem(16) rem(32);
+            color: #fff;
+            box-shadow: 0 0 6px 0 rgba(69, 42, 94, 0.5);
+            border: solid 3px transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(106deg, #6E96F0 0%, #3633D0 100%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 2px 1000px 1px #1D193C inset;
+            transition: 0.3s;
+            &:hover{
+                transition: 0.3s;
+              box-shadow: none;
+              color: white;
+            }
+
+        }
+    }
+
+
+
+}

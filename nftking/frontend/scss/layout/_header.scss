@@ -1,0 +1,93 @@
+
+.header{
+    display: flex;
+    height: rem(90);
+    border-bottom: 1px solid rgba(217,217,217, 0.3);
+    position: fixed;
+    width: 100%; 
+    top: 0;
+    background: url(../img/bg.png) top/cover no-repeat;
+    z-index: 50;
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__menu{
+        display: flex;
+        justify-content: space-between;
+        @media (max-width:500px){
+           display: none;
+        }
+    }
+
+    &__menu-item {
+        margin-right: rem(31);
+        &:last-child{
+            margin-right: 0;
+        }
+        a{
+            font-size: rem(18);
+            font-family: 'GT Walsheim Pro';
+            font-weight: 300;
+        }
+    }
+
+
+
+    &__title{
+        font-size: rem(27);
+        font-family: 'GT Walsheim Pro';
+        font-weight: 600;
+        margin-left: rem(-95);
+        margin-top: rem(5);
+        @media (max-width:500px){
+            margin-left: 0;
+         }
+    }
+
+    &__button{
+        font-family: 'Roboto';
+        font-size: rem(19.2);
+        border-radius: 40px;
+        padding: rem(8) rem(24);
+        color: #fff;
+        box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+        border: solid 3px transparent;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(106deg, #6E96F0 0%, #3633D0 100%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 2px 1000px 1px #322860 inset;
+        transition: 0.3s;
+        &:hover{
+            transition: 0.3s;
+            box-shadow: none;
+            color: white;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+// width: 100%;
+// height: 270px;
+
+// background: rgba(20,23,45,0.25);
+
+// border: solid 2px #0f0;
+// box-sizing: border-box;
+// border-radius: 50px;
+// border-image-slice: 1; /* border-radius*2 */
+// border-image-repeat: round;
+// border-image-width: 10px; /* border-radius*2 */
+// &:hover {
+//     background: linear-gradient(to bottom, #3acfd5 0%, #3a4ed5 100%);
+//   }

@@ -1,0 +1,128 @@
+.main{
+
+    &__explore{
+        margin-right: rem(30);
+    }
+
+    &__cards {
+        width: 50%;
+        margin: 0 auto;
+        @media(max-width:1300px){
+            width: 45%;
+        }
+        @media (max-width:1024px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    &__cards-container{
+        position: relative;
+        // height: 22rem;
+        margin-bottom: 22.5rem;
+        @media(max-width:1300px){
+            // height:  32rem;
+           
+            margin-bottom: 25.5rem;
+        }
+        @media(max-width:1024px){
+            // height: 55rem;
+            margin-top: rem(400);
+            width: 100%;
+        }
+        @media(max-width:500px){
+            margin-top: 16rem;
+        }
+    }
+
+    &__card1, &__card2, &__card3{
+        position: absolute;
+        // width: rem(362);
+        // height: rem(397);
+        // min-width: rem(500);
+        img{
+            width: 100%;
+        }
+    }
+
+    &__card1{
+        z-index: 10;
+        left: 5.5rem;
+        top: 2.5rem;
+        @media(max-width:1024px){
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+       
+    }
+
+    &__card2{
+        z-index: 6;
+        left: 5.5rem;
+        top: 0.5rem;
+      
+        @media(max-width:1024px){
+            left: 50%;
+            top: 50%;
+            transform: translate(-40%, -50%);
+        }
+        @media(max-width:500px){
+            // transform: translate(-40%, -50%);
+        }
+    }
+
+    &__card3{
+        z-index: 5;
+        left: 5.5rem;
+        top: -0.5rem;
+        // min-width: rem(477);
+        @media(max-width:1024px){
+            left: 50%;
+            top: 50%;
+            transform: translate(-30%, -50%);
+          }
+          @media(max-width:500px){
+            // transform: translate(-30%, -50%);
+        }
+    }
+
+
+    &__cryptos-logos {
+        position: relative;
+        backdrop-filter: blur(10px);
+        border: 2px solid #a2a5aa;
+        z-index: 20;
+        border-radius: 10px;
+        @media(max-width:1024px){
+            width: 80%;
+            margin-top: rem(-150);
+        }
+        @media(max-width:500px){
+            margin-top: -19.375rem;
+        }
+    }
+
+    &__cryptos-list {
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;  
+        padding: rem(45) rem(37);
+    }
+
+    &__cryptos-item{
+        margin-right: rem(35);
+        img{
+            width: 100%;
+        }
+        &:last-child{
+            margin-top: rem(-5);
+        }
+    }
+
+
+
+}
