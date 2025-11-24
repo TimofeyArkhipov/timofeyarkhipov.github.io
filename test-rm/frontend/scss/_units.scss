@@ -1,0 +1,74 @@
+@use "sass:math";
+@use "sass:list";
+// =========================
+//  Базовые настройки
+// =========================
+$rem-baseline: 16px !default;  // size rem
+$em-parent: 16px !default;     // size em
+$units-px-fallback: false !default; // if true — dublicate px andrem/em
+
+// =========================
+//  em()
+// =========================
+@function rem($values...) {
+  $result: ();
+
+  @each $value in $values {
+    @if math.unit($value) != "px" {
+      @warn "rem() ожидает значение в px, передано: #{$value}";
+      $result: list.append($result, $value);
+    } @else {
+      $val: math.div($value, $rem-baseline) * 1rem;
+
+      @if $units-px-fallback {
+        $val: $value; // фолбек в px
+      }
+
+      $result: list.append($result, $val);
+    }
+  }
+
+  @return if(list.length($result) == 1, list.nth($result, 1), $result);
+}
+// =========================
+//  em()
+// =========================
+@function em($values...) {
+  $result: ();
+
+  @each $value in $values {
+    @if math.unit($value) != "px" {
+      @warn "em() ожидает значение в px, передано: #{$value}";
+      $result: append($result, $value);
+    } @else {
+      $val: math.div($value, $em-parent) * 1em;
+      @if $units-px-fallback {
+        $val: $value; // фолбек в px
+      }
+      $result: append($result, $val);
+    }
+  }
+
+  @return if(length($result) == 1, nth($result, 1), $result);
+}
+
+// =========================
+//  mixins
+// =========================
+@mixin rem-css($properties, $values...) {
+  @each $prop in $properties {
+    @if $units-px-fallback {
+      #{$prop}: $values; // px fallback
+    }
+    #{$prop}: rem($values...);
+  }
+}
+
+@mixin em-css($properties, $values...) {
+  @each $prop in $properties {
+    @if $units-px-fallback {
+      #{$prop}: $values; // px fallback
+    }
+    #{$prop}: em($values...);
+  }
+}

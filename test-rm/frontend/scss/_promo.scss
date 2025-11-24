@@ -1,0 +1,189 @@
+@use "_units.scss" as *;
+@use "_variables.scss" as *;
+
+// =============================================
+// Промо секция
+// =============================================
+
+.promo {
+  position: relative;
+  padding: rem(40px) 0;
+  overflow: hidden;
+  
+  @media (min-width: $breakpoint-desktop) {
+    padding: 0;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+}
+
+// Контент промо
+.promo__content {
+  position: relative;
+  z-index: $z-index-content;
+  text-align: center;
+  // margin-bottom: rem(350px);
+  
+  @media (min-width: $breakpoint-desktop) {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 clamp(2rem, 3vw, 5rem);
+  }
+}
+
+.promo__logo {
+  margin-bottom: rem(40px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+  @media (min-width: $breakpoint-desktop) {
+    margin-bottom: clamp(3rem, 4vh, 6rem);
+    width: 100%;
+    max-width: clamp(35rem, 40vw, 50rem);
+    justify-content: flex-start;
+  }
+}
+
+.promo__text-wrapper {
+  position: relative;
+  z-index: $z-index-content;
+  
+  @media (min-width: $breakpoint-desktop) {
+    width: 100%;
+    max-width: clamp(35rem, 40vw, 50rem);
+  }
+}
+
+.promo__title {
+  font-size: rem($font-size-h1-mobile);
+  font-weight: 700;
+  color: $color-text-light;
+  line-height: 1.2;
+  margin: rem(43px) 0 rem(16px);
+  text-transform: uppercase;
+  
+  @media (min-width: $breakpoint-desktop) {
+    font-size: clamp(2.5rem, 3.5vw, 5rem);
+    margin: 0 0 clamp(1.5rem, 2vh, 3rem);
+    text-align: left;
+  }
+}
+
+.promo__title-accent {
+  color: $color-text-accent;
+}
+
+.promo__subtitle {
+  font-size: rem($font-size-h3-mobile);
+  font-weight: 400;
+  color: $color-text-gray;
+  margin: 0 0 rem(24px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  @media (min-width: $breakpoint-desktop) {
+    font-size: clamp(0.875rem, 1.2vw, 1.5rem);
+    margin: 0 0 clamp(2rem, 3vh, 4rem);
+    text-align: left;
+  }
+}
+
+.promo__button {
+  width: rem(282px);
+  padding: 30px 0px;
+  @media (min-width: $breakpoint-desktop) {
+    width: auto;
+    align-self: flex-start;
+    width: 100%;
+  }
+}
+
+// Обертка изображения
+.promo__image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: rem(40px);
+  height: 100%;
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 0;
+    align-items: stretch;
+  
+  }
+}
+
+// Декоративные элементы промо
+.promo__decorative {
+  position: absolute;
+  z-index: $z-index-decorative;
+ 
+  &--top-left {
+    top: rem(-20px);
+    left: rem(-20px);
+    
+    @media (min-width: $breakpoint-desktop) {
+      top: rem(-40px);
+      left: rem(-40px);
+    }
+  }
+  
+  &--bottom-right {
+    bottom: rem(-20px);
+    right: rem(-20px);
+  
+    @media (min-width: $breakpoint-desktop) {
+      bottom: rem(-60px);
+      right: rem(-60px);
+    }
+  }
+}
+
+// Светящиеся звезды
+.promo__star {
+  position: absolute;
+  width: rem(60px);
+  height: auto;
+  z-index: $z-index-decorative;
+  object-fit: contain;
+  animation: diamond-pulse 3s ease-in-out infinite;
+  
+  &--1 {
+    top: rem(100px);
+    left: rem(150px);
+    animation-delay: 0s;
+    
+    @media (min-width: $breakpoint-desktop) {
+      top: clamp(8rem, 10vh, 12rem);
+      left: clamp(45rem, 20vw, 22rem);
+      width: clamp(5rem, 6vw, 8rem);
+    }
+  }
+  
+  &--2 {
+    bottom: rem(150px);
+    left: rem(30px);
+    animation-delay: 1.5s;
+    
+    @media (min-width: $breakpoint-desktop) {
+      bottom: clamp(12rem, 15vh, 18rem);
+      left: clamp(35rem, 25vw, 22rem);
+      width: clamp(5rem, 6vw, 8rem);
+    }
+  }
+  
+  @media (min-width: $breakpoint-desktop) {
+    width: clamp(5rem, 6vw, 8rem);
+  }
+}
+
+// Анимация diamond-pulse определена в _components.scss
+

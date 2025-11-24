@@ -1,0 +1,93 @@
+@use "_units.scss" as *;
+@use "_variables.scss" as *;
+
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+  display: block;
+}
+
+.main {
+  @media (min-width: $breakpoint-desktop) {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+
+//fuul screen
+// html {
+//   font-size: 1vw;
+//   @media (orientation: portrait){
+//     font-size: 2.5vw;
+//   }
+// }
+html {
+  font-size: 16px;
+
+  @media (min-width: $breakpoint-desktop) {
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  @media (min-width: $breakpoint-large) {
+    // Резиновый font-size для масштабирования всех rem единиц
+    font-size: calc(16px + (24 - 16) * ((100vw - 1920px) / (3840 - 1920)));
+  }
+
+  @media (min-width: $breakpoint-4k) {
+    font-size: 24px; // Максимальный размер для 4K
+  }
+
+  // @media (orientation: portrait){
+  //   font-size: 2.5vw;
+  // }
+}
+
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Gotham Pro', sans-serif;
+  color: #FFFFFF;
+  line-height: 1;
+  background: #0B0B0A;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: $breakpoint-desktop) {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  max-width: rem(1281px);
+  
+  @media(max-width: 1330px){
+    margin: 0 rem(20px);
+    
+  }
+}
+
+
+
+
+
+
+
+

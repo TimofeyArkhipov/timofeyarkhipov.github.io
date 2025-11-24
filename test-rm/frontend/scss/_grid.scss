@@ -1,0 +1,95 @@
+@use "_units.scss" as *;
+@use "_variables.scss" as *;
+
+// =============================================
+// Grid система (Mobile First)
+// =============================================
+
+// Контейнер
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  // padding: 0 rem($container-padding-mobile);
+
+  @media (min-width: $breakpoint-desktop) {
+    // padding: 0 clamp(2rem, 2vw, 4rem);
+    height: 100%;
+  }
+}
+
+// Grid обертка
+.grid {
+  display: grid;
+  gap: rem($grid-gap-mobile);
+  
+  // Mobile First: 4 колонки
+  grid-template-columns: repeat($grid-columns-mobile, 1fr);
+
+  @media (min-width: $breakpoint-desktop) {
+    gap: clamp(1rem, 1.5vw, 2rem);
+    // Desktop: 8 колонок
+    grid-template-columns: repeat($grid-columns-desktop, 1fr);
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
+
+// Утилиты для колонок (Mobile)
+@for $i from 1 through $grid-columns-mobile {
+  .grid__col--#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// Утилиты для колонок (Desktop)
+@media (min-width: $breakpoint-desktop) {
+  @for $i from 1 through $grid-columns-desktop {
+    .grid__col--desktop-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// Полная ширина
+.grid__col--full {
+  grid-column: 1 / -1;
+}
+
+// Центрирование колонки
+.grid__col--center {
+  justify-self: center;
+}
+
+// Выравнивание
+.grid__align--center {
+  align-items: center;
+}
+
+.grid__align--start {
+  align-items: start;
+}
+
+.grid__align--end {
+  align-items: end;
+}
+
+// Вертикальное выравнивание контента внутри колонки
+.grid__content--center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid__content--start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.grid__content--end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
