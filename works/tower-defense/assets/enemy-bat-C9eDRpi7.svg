@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="36" viewBox="0 0 48 36">
+  <!-- flying bat, faces right; no shadow - the view draws it on the ground -->
+  <path d="M22 16 Q14 4 2 8 Q8 12 6 18 Q12 15 14 22 Q18 17 22 20 Z" fill="#5a3d7a" stroke="#1d1029" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M26 16 Q34 4 46 8 Q40 12 42 18 Q36 15 34 22 Q30 17 26 20 Z" fill="#6c4a91" stroke="#1d1029" stroke-width="2" stroke-linejoin="round"/>
+  <ellipse cx="24" cy="20" rx="7" ry="8" fill="#7d58a6" stroke="#1d1029" stroke-width="2"/>
+  <path d="M19 13 L20 8 L23 12 M29 13 L28 8 L25 12" fill="#7d58a6" stroke="#1d1029" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="26" cy="18" r="2.2" fill="#ffe14d"/>
+  <circle cx="30" cy="18" r="2.2" fill="#ffe14d"/>
+  <path d="M25 24 L26 26 L27 24 M29 24 L30 26 L31 24" fill="#fff" stroke="#1d1029" stroke-width="0.8"/>
+</svg>
