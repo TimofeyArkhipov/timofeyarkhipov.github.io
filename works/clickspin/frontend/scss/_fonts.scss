@@ -1,0 +1,14 @@
+// Папка с шрифтами
+$font-path: "../fonts";
+
+// ---------------------------
+// Gotham Pro
+// ---------------------------
+
+@font-face {
+  font-family: 'Gotham Pro';
+  src: url('#{$font-path}/Gotham Pro.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
