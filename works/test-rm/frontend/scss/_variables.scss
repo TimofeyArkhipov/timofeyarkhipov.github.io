@@ -1,0 +1,65 @@
+// =============================================
+// Переменные проекта
+// =============================================
+
+// Цвета
+$color-primary: #D4A574;          // Золотой цвет кнопок
+$color-primary-dark: #B88D5F;     // Темнее для hover
+$color-secondary: #FFD700;         // Светло-золотой для текста "AS A GIFT"
+$color-bg-dark: #0B0B0A;           // Черный фон
+$color-bg-gradient-start: #1a1a1a; // Начало градиента
+$color-bg-gradient-end: #000000;   // Конец градиента
+$color-text-light: #FFFFFF;        // Белый текст
+$color-text-gray: #A0A0A0;         // Серый текст для подзаголовков
+$color-text-accent: #EBBE7D;       // Акцентный золотой текст
+
+// Размеры Grid
+$grid-columns-mobile: 4;           // Колонки для мобильных
+$grid-columns-desktop: 8;          // Колонки для десктопа
+$grid-gap-mobile: 8px;             // Отступ между колонками (мобайл)
+$grid-gap-desktop: 16px;           // Отступ между колонками (десктоп)
+
+// Breakpoints
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1920px;
+$breakpoint-xlarge: 2560px;
+$breakpoint-4k: 3840px;
+
+// Контейнер
+$container-padding-mobile: 16px;
+$container-padding-desktop: 32px;
+$container-max-width: 1856px;      // 1920px - 32px * 2
+
+// Типографика
+$font-family-base: 'Gotham Pro', sans-serif;
+$font-size-base: 16px; 
+
+// Заголовки
+$font-size-h1-mobile: 24px;
+$font-size-h1-desktop: 48px;
+$font-size-h2-mobile: 18px;
+$font-size-h2-desktop: 24px;
+$font-size-h3-mobile: 14px;
+$font-size-h3-desktop: 18px;
+
+// Кнопки
+$btn-padding-mobile: 12px 24px;
+$btn-padding-desktop: 16px 48px;
+$btn-border-radius: 100px;
+$btn-font-weight: 700;
+
+// Transition
+$transition-base: 0.3s ease;
+
+// Shadows
+$shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+$shadow-button: 0 4px 12px rgba(212, 165, 116, 0.4);
+
+// Z-index
+$z-index-base: 1;
+$z-index-decorative: 2;
+$z-index-content: 10;
+$z-index-header: 100;
+

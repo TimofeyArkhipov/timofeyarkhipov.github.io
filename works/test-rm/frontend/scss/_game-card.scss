@@ -1,0 +1,166 @@
+@use "_units.scss" as *;
+@use "_variables.scss" as *;
+
+// =============================================
+// Игровая карточка
+// =============================================
+
+.game-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  // border-radius: rem(20px);
+  overflow: hidden;
+  box-shadow: $shadow-card;
+  
+  @media (min-width: $breakpoint-desktop) {
+    // border-radius: rem(24px);
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+.game-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/halfbg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: $z-index-base;
+}
+
+.game-card__logo {
+  position: absolute;
+  top: rem(16px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: rem(170px);
+  height: auto;
+  z-index: $z-index-content;
+  object-fit: contain;
+  
+  @media (min-width: $breakpoint-desktop) {
+    top: rem(80px);
+    width: 10rem
+  }
+}
+
+.game-card__character {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: rem(200px);
+  height: auto;
+  z-index: $z-index-content;
+  object-fit: contain;
+  width: rem(400px);
+  @media (min-width: $breakpoint-desktop) {
+    width: clamp(25rem, 30vw, 40rem);
+    max-height: 60vh;
+  }
+}
+
+// Декоративные элементы игры
+.promo__decorative {
+  position: absolute;
+  z-index: $z-index-content;
+}
+
+// Монетка
+.decorative-coin {
+  display: block;
+  width: rem(160px);
+  height: rem(160px);
+  object-fit: contain;
+  
+  @media (min-width: $breakpoint-desktop) {
+    width: clamp(12rem, 15vw, 20rem);
+    height: clamp(12rem, 15vh, 20rem);
+  }
+}
+
+.promo__decorative--coin {
+  top: 23rem;
+  left: rem(20px);
+  animation: float 3s ease-in-out infinite;
+  
+  @media (min-width: $breakpoint-desktop) {
+    top: clamp(3rem, 5vh, 6rem);
+    left: clamp(50rem, 52vw, 65rem);
+  }
+}
+
+// Конфета
+.decorative-candy {
+  display: block;
+
+  object-fit: contain;
+// width: rem(540px);
+    // height: rem(540px);
+  @media (min-width: $breakpoint-desktop) {
+    width: rem(540px);
+    height: rem(540px);
+    // width: clamp(5rem, 6vw, 8rem);
+    // height: clamp(5rem, 6vh, 8rem);
+
+  }
+}
+
+.promo__decorative--candy {
+  bottom: 20rem;
+  right: -3.25rem;
+ 
+  animation: float 2.5s ease-in-out infinite 0.5s;
+  // background-image: url('../img/image 3.png');
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  width: rem(400px);
+  height: rem(400px);
+  @media (min-width: $breakpoint-desktop) {
+    
+    bottom: rem(140px);
+    right: rem(-150px);
+
+  }
+}
+
+// Леденец
+.decorative-lollipop {
+  width: 9.8125rem;
+  height: 7.8125rem;
+  object-fit: contain;
+  
+  @media (min-width: $breakpoint-desktop) {
+    width: clamp(12rem, 15vw, 18rem);
+    height: clamp(10rem, 13vh, 16rem);
+    transform: translate(261px, -212px);
+  }
+}
+
+.promo__decorative--lollipop {
+  bottom: rem(50px);
+  right: 28.25rem;
+  animation: float 3.5s ease-in-out infinite 1s;
+
+  @media (min-width: $breakpoint-desktop) {
+    bottom: clamp(18rem, 22vh, 28rem);
+    right: rem(800px);
+    
+  }
+}
+
+// Анимация плавания
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+

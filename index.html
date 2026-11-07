@@ -1,12 +1,524 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name · Game Developer</title>
+<meta name="description" content="Frontend developer turned game developer from Odesa, Ukraine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: ночная пиксельная сцена (Одесский порт, море, маяк) как герой, дальше — тёмная колонка с пиксельными рамками */
+:root {
+  --bg: #0b1220;
+  --bg-2: #111b2e;
+  --fg: #e8ecf4;
+  --muted: #8d99b3;
+  --line: #24314d;
+  --amber: #ffb547;
+  --sea: #43d1c4;
+  --px: 4px;
+  --font-display: "Pixelify Sans", "Silkscreen", ui-monospace, monospace;
+  --font-label: "Silkscreen", "Pixelify Sans", ui-monospace, monospace;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--amber); color: var(--bg); }
+a { color: var(--sea); text-underline-offset: 3px; }
+:focus-visible { outline: 2px dashed var(--amber); outline-offset: 4px; }
+
+.gutter {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+
+/* Пиксельная рамка с «срезанными» углами */
+.px-frame {
+  box-shadow:
+    0 calc(-1 * var(--px)) 0 0 var(--line),
+    0 var(--px) 0 0 var(--line),
+    calc(-1 * var(--px)) 0 0 0 var(--line),
+    var(--px) 0 0 0 var(--line);
+}
+
+/* Шапка */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+header.top {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 20;
+  transition: background .3s, border-color .3s;
+  border-bottom: 2px solid transparent;
+}
+header.top.scrolled { background: rgba(11, 18, 32, .88); backdrop-filter: blur(6px); border-color: var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.logo { font-family: var(--font-label); font-size: 15px; color: var(--fg); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 12px; height: 12px; background: var(--amber); display: inline-block; animation: blink 1.6s steps(1) infinite; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { font-family: var(--font-label); font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: .04em; position: relative; }
+nav a::before { content: "▸"; position: absolute; left: -12px; color: var(--amber); opacity: 0; transition: opacity .15s, transform .15s; transform: translateX(-4px); }
+nav a:hover { color: var(--fg); }
+nav a:hover::before { opacity: 1; transform: none; }
+
+/* Герой со сценой */
+.hero { position: relative; overflow: hidden; min-height: 620px; display: flex; align-items: flex-end; }
+#scene { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+.hero::after { content: ""; position: absolute; inset: auto 0 0; height: 120px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+.hero-inner::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,18,32,.78) 0%, rgba(11,18,32,.45) 45%, transparent 75%); pointer-events: none; }
+.hero-inner > .wrap { position: relative; }
+.hero-inner { position: relative; z-index: 2; width: 100%; padding-block: 140px 72px; }
+.hero .eyebrow { font-family: var(--font-label); font-size: 12px; color: var(--amber); letter-spacing: .08em; display: flex; gap: 14px; flex-wrap: wrap; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(44px, 9vw, 96px); line-height: .95; margin: 18px 0 18px;
+  text-shadow: 4px 4px 0 #000, 0 0 24px rgba(255,181,71,.25);
+  text-wrap: balance;
+}
+.caret { display: inline-block; width: .5em; height: .1em; background: var(--amber); margin-left: .08em; vertical-align: baseline; animation: blink 1s steps(1) infinite; }
+.hero .lead { font-size: clamp(18px, 2.4vw, 21px); max-width: 32em; margin: 0; color: #c9d2e4; text-shadow: 0 2px 8px #000; }
+.path { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 22px; font-family: var(--font-label); font-size: 12px; }
+.path span { padding: 4px 8px; background: rgba(11,18,32,.75); color: var(--muted); }
+.path span.now { background: var(--amber); color: var(--bg); }
+.path b { color: var(--muted); font-weight: 400; }
+.actions { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 30px; }
+
+.btn {
+  font-family: var(--font-label); font-size: 13px; letter-spacing: .04em;
+  display: inline-block; padding: 12px 18px; text-decoration: none; cursor: pointer;
+  color: var(--bg); background: var(--amber); border: 0;
+  box-shadow: 0 -4px 0 0 var(--amber), 0 4px 0 0 #b3741f, -4px 0 0 0 var(--amber), 4px 0 0 0 var(--amber), 0 8px 0 0 #000;
+  transition: transform .08s, box-shadow .08s, filter .15s;
+}
+.btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.btn:active { transform: translateY(4px); box-shadow: 0 -4px 0 0 var(--amber), 0 4px 0 0 #b3741f, -4px 0 0 0 var(--amber), 4px 0 0 0 var(--amber); }
+.btn.ghost { background: rgba(11,18,32,.8); color: var(--fg); box-shadow: 0 -4px 0 0 var(--line), 0 4px 0 0 var(--line), -4px 0 0 0 var(--line), 4px 0 0 0 var(--line), 0 8px 0 0 #000; }
+.btn.ghost:active { box-shadow: 0 -4px 0 0 var(--line), 0 4px 0 0 var(--line), -4px 0 0 0 var(--line), 4px 0 0 0 var(--line); }
+
+/* Разделы */
+main { position: relative; }
+main::before { /* лёгкая пиксельная сетка */
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, transparent, #000 200px, #000 calc(100% - 200px), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 200px, #000 calc(100% - 200px), transparent);
+}
+section.block { position: relative; padding-block: 72px; }
+.sec-label { font-family: var(--font-label); font-size: 12px; color: var(--sea); letter-spacing: .08em; margin: 0 0 10px; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; margin: 0 0 24px; text-wrap: balance; }
+.prose p { max-width: 62ch; margin: 0 0 16px; color: #c3cbdc; }
+.about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: start; }
+.about-grid > * { min-width: 0; }
+.card-stats { background: var(--bg-2); padding: 22px; display: grid; gap: 14px; }
+.stat { display: flex; justify-content: space-between; gap: 12px; border-bottom: 2px dotted var(--line); padding-bottom: 10px; }
+.stat:last-child { border-bottom: 0; padding-bottom: 0; }
+.stat .k { font-family: var(--font-label); font-size: 11px; color: var(--muted); letter-spacing: .06em; padding-top: 3px; }
+.stat .v { font-weight: 600; text-align: right; }
+
+/* Проекты */
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+.project {
+  background: var(--bg-2); display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s;
+}
+.project:hover { transform: translate(-4px, -4px); box-shadow: 0 -4px 0 0 var(--amber), 0 4px 0 0 var(--amber), -4px 0 0 0 var(--amber), 4px 0 0 0 var(--amber), 8px 8px 0 4px #000; }
+.thumb { aspect-ratio: 16 / 10; max-width: 100%; background: #070c16; position: relative; overflow: hidden; }
+.thumb canvas, .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: pixelated; transition: transform .4s; }
+.project:hover .thumb canvas, .project:hover .thumb img { transform: scale(1.06); }
+.thumb .play { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-label); font-size: 14px; color: var(--bg); opacity: 0; transition: opacity .2s; background: rgba(11,18,32,.35); }
+.thumb .play span { background: var(--amber); padding: 8px 12px; }
+.project:hover .play, .project:focus-visible .play { opacity: 1; }
+.project-body { padding: 18px 20px 20px; display: grid; gap: 8px; flex: 1; align-content: start; }
+.project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.project h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1.15; margin: 0; }
+.year { font-family: var(--font-label); font-size: 11px; color: var(--muted); }
+.project p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tag { font-family: var(--font-label); font-size: 10.5px; padding: 3px 7px; background: var(--bg); color: var(--sea); letter-spacing: .03em; }
+.code-link { font-size: 14px; margin-top: 4px; justify-self: start; }
+
+/* Навыки как статы персонажа */
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.skills-grid > * { min-width: 0; }
+.bars { display: grid; gap: 16px; }
+.bar-row .top-line { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; }
+.bar-row .lvl { font-family: var(--font-label); font-size: 11px; color: var(--muted); }
+.bar { height: 14px; background: var(--bg-2); position: relative; overflow: hidden; }
+.bar i {
+  position: absolute; inset: 0 auto 0 0; width: var(--w);
+  background: repeating-linear-gradient(90deg, var(--c, var(--sea)) 0 10px, transparent 10px 12px);
+  transition: width 1.2s steps(12);
+}
+.bars.pending .bar i { width: 0; }
+
+/* Опыт как уровни */
+.levels { display: grid; gap: 0; }
+.level { display: grid; grid-template-columns: 56px 1fr; gap: 16px; position: relative; padding-bottom: 28px; }
+.level:not(:last-child)::before { content: ""; position: absolute; left: 26px; top: 50px; bottom: 4px; width: 4px; background: repeating-linear-gradient(var(--line) 0 4px, transparent 4px 8px); }
+.level .badge { width: 56px; height: 48px; display: grid; place-items: center; font-family: var(--font-label); font-size: 12px; background: var(--bg-2); color: var(--muted); }
+.level.now .badge { background: var(--amber); color: var(--bg); }
+.level .when { font-family: var(--font-label); font-size: 11px; color: var(--muted); }
+.level .role { font-weight: 600; font-size: 18px; margin: 2px 0 4px; }
+.level .desc { color: var(--muted); font-size: 15.5px; max-width: 46ch; margin: 0; }
+
+/* Контакты */
+.contact-box { background: var(--bg-2); padding: 28px; display: grid; gap: 14px; max-width: 640px; }
+.contact-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.contact-row .k { font-family: var(--font-label); font-size: 11px; color: var(--muted); width: 84px; letter-spacing: .06em; }
+.contact-row .v { font-size: 18px; word-break: break-all; }
+.copy { font-family: var(--font-label); font-size: 11px; padding: 5px 9px; background: var(--bg); color: var(--fg); border: 2px solid var(--line); cursor: pointer; }
+.copy:hover { border-color: var(--amber); color: var(--amber); }
+
+footer { padding-block: 36px 48px; font-family: var(--font-label); font-size: 11px; color: var(--muted); letter-spacing: .05em; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* Появление при прокрутке */
+.reveal.pre { opacity: .1; transform: translateY(28px); }
+.reveal { transition: opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1); }
+
+/* Пиксельный переход */
+#wipe { position: fixed; inset: 0; z-index: 100; pointer-events: none; image-rendering: pixelated; width: 100%; height: 100%; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 760px) {
+  .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero { min-height: 560px; }
+  .hero-inner { padding-block: 120px 56px; }
+  section.block { padding-block: 56px; }
+  nav { gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
-    hello
+
+<header class="top gutter" id="topbar">
+  <div class="wrap">
+    <a class="logo" href="#home"><i></i>YOUR NAME</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="hero-inner gutter">
+    <div class="wrap">
+      <div class="eyebrow"><span>Odesa, Ukraine</span><span>UTC+2</span></div>
+      <h1>Your Name<span class="caret"></span></h1>
+      <p class="lead">Frontend developer turned game developer. I used to build interfaces for the web — now I build worlds you can play in.</p>
+      <div class="path" aria-label="Career path">
+        <span>HTML/CSS</span><b>→</b><span>React</span><b>→</b><span class="now">Game dev</span>
+      </div>
+      <div class="actions">
+        <a class="btn" href="#work">▶ Play my work</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="block gutter" id="about">
+    <div class="wrap about-grid reveal">
+      <div class="prose">
+        <p class="sec-label">// 01 · About</p>
+        <h2>From pixels on a page to pixels in a game</h2>
+        <p>I started out hand-coding layouts, then spent years building React apps — design systems, dashboards, interactive pages. Along the way I kept sneaking animations and little games into every project.</p>
+        <p>So I made it official. Today I make games: gameplay programming, game feel, UI and tools. My frontend background means I care about responsiveness, clean UI and getting things to run smoothly in the browser and beyond.</p>
+      </div>
+      <div class="card-stats px-frame" aria-label="Quick facts">
+        <div class="stat"><span class="k">CLASS</span><span class="v">Game Developer</span></div>
+        <div class="stat"><span class="k">BASE</span><span class="v">Odesa, UA</span></div>
+        <div class="stat"><span class="k">PREV. CLASS</span><span class="v">Frontend / React</span></div>
+        <div class="stat"><span class="k">LANGUAGES</span><span class="v">English, Ukrainian, Russian</span></div>
+        <div class="stat"><span class="k">STATUS</span><span class="v" style="color:var(--sea)">Open to work</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block gutter" id="work">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="sec-label">// 02 · Projects</p>
+        <h2>Pick a level</h2>
+      </div>
+      <div class="projects" id="projects"></div>
+    </div>
+  </section>
+
+  <section class="block gutter" id="skills">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="sec-label">// 03 · Skills &amp; experience</p>
+        <h2>Character sheet</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="bars pending reveal" id="bars">
+          <div class="bar-row"><div class="top-line"><span>Unity / C#</span><span class="lvl">LV 7</span></div><div class="bar"><i style="--w:72%;--c:var(--amber)"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>Godot / GDScript</span><span class="lvl">LV 6</span></div><div class="bar"><i style="--w:60%;--c:var(--amber)"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>JavaScript / TypeScript</span><span class="lvl">LV 9</span></div><div class="bar"><i style="--w:90%"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>React</span><span class="lvl">LV 9</span></div><div class="bar"><i style="--w:88%"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>HTML &amp; CSS, animation</span><span class="lvl">LV 10</span></div><div class="bar"><i style="--w:96%"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>Pixel art &amp; Aseprite</span><span class="lvl">LV 5</span></div><div class="bar"><i style="--w:50%;--c:#c58cff"></i></div></div>
+        </div>
+        <div class="levels reveal" aria-label="Experience">
+          <div class="level now">
+            <div class="badge">LV 3</div>
+            <div><div class="when">2024 — NOW</div><div class="role">Game Developer</div><p class="desc">Gameplay programming, game UI and prototyping. Indie and freelance projects.</p></div>
+          </div>
+          <div class="level">
+            <div class="badge">LV 2</div>
+            <div><div class="when">2021 — 2024</div><div class="role">React Developer</div><p class="desc">Single-page apps, component libraries and animated interfaces.</p></div>
+          </div>
+          <div class="level">
+            <div class="badge">LV 1</div>
+            <div><div class="when">2019 — 2021</div><div class="role">HTML/CSS Developer</div><p class="desc">Pixel-perfect, responsive layouts from Figma designs.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block gutter" id="contact">
+    <div class="wrap reveal">
+      <p class="sec-label">// 04 · Contact</p>
+      <h2>Player 2, join the game</h2>
+      <div class="contact-box px-frame">
+        <div class="contact-row"><span class="k">EMAIL</span><span class="v" id="c-email">you@example.com</span><button class="copy" type="button" data-target="c-email">COPY</button></div>
+        <div class="contact-row"><span class="k">TELEGRAM</span><a class="v" href="https://t.me/your_handle" target="_blank" rel="noopener">@your_handle</a></div>
+        <div class="contact-row"><span class="k">GITHUB</span><a class="v" href="https://github.com/your-login" target="_blank" rel="noopener">github.com/your-login</a></div>
+        <div class="contact-row"><span class="k">ITCH.IO</span><a class="v" href="https://itch.io" target="_blank" rel="noopener">your-name.itch.io</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="gutter"><div class="wrap"><span>© 2026 YOUR NAME</span><span>MADE IN ODESA</span></div></footer>
+
+<canvas id="wipe" aria-hidden="true"></canvas>
+
+<script src="works.js"></script>
+<script>
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Пиксельная сцена: ночная Одесса, порт, море, маяк ---------- */
+(function () {
+  var cv = document.getElementById('scene'), ctx = cv.getContext('2d');
+  var W = 320, H = 180, stars = [], t = 0, last = 0;
+  function rnd(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+  function setup() {
+    var r = cv.getBoundingClientRect();
+    H = 180; W = Math.max(200, Math.round(H * r.width / Math.max(1, r.height)));
+    cv.width = W; cv.height = H;
+    var R = rnd(7); stars = [];
+    for (var i = 0; i < W * 0.35; i++) stars.push({ x: R() * W | 0, y: R() * H * 0.55 | 0, p: R() * 6.28, s: R() < 0.12 ? 2 : 1 });
+  }
+  var sky = ['#0a0f24', '#0d1530', '#12193a', '#1a1f45', '#262552', '#3a2c5c', '#5a3560'];
+  function px(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(x | 0, y | 0, w | 0, h | 0); }
+  function draw() {
+    var horizon = Math.round(H * 0.68);
+    // небо полосами
+    var band = Math.ceil(horizon / sky.length);
+    for (var i = 0; i < sky.length; i++) px(0, i * band, W, band + 1, sky[i]);
+    // звёзды
+    for (var j = 0; j < stars.length; j++) {
+      var s = stars[j], a = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t * 0.04 + s.p));
+      ctx.globalAlpha = a; px(s.x, s.y, s.s, s.s, '#f3f0ff');
+    }
+    ctx.globalAlpha = 1;
+    // луна
+    var mx = Math.round(W * 0.2), my = 30;
+    for (var yy = -9; yy <= 9; yy++) for (var xx = -9; xx <= 9; xx++) {
+      var d = xx * xx + yy * yy; if (d <= 81) px(mx + xx, my + yy, 1, 1, d > 64 ? '#e9d9a8' : '#fff1c9');
+    }
+    px(mx - 3, my - 2, 3, 3, '#e9d9a8'); px(mx + 2, my + 3, 2, 2, '#e9d9a8');
+    // город и портовые краны (силуэт)
+    var city = '#0a0d1c';
+    var R = rnd(42), x = 0;
+    while (x < W * 0.62) {
+      var bw = 6 + (R() * 10 | 0), bh = 6 + (R() * 18 | 0);
+      px(x, horizon - bh, bw, bh, city);
+      if (R() < 0.7) for (var k = 0; k < 3; k++) if (R() < 0.5) px(x + 2 + (R() * (bw - 3) | 0), horizon - bh + 3 + (R() * (bh - 4) | 0), 1, 1, (Math.sin(t * 0.01 + x) > -0.6) ? '#ffcf73' : city);
+      x += bw;
+    }
+    // краны
+    for (var c = 0; c < 3; c++) {
+      var cx = Math.round(W * (0.38 + c * 0.08)), ch = 30 + c * 4;
+      px(cx, horizon - ch, 2, ch, city);
+      px(cx - 10, horizon - ch, 24, 2, city);
+      px(cx + 12, horizon - ch + 2, 1, 8, city);
+      px(cx - 1, horizon - ch - 3, 4, 3, city);
+      if ((t / 30 | 0) % 2 === c % 2) px(cx, horizon - ch - 4, 1, 1, '#ff4d4d');
+    }
+    // море
+    var seaC = ['#0f2a44', '#0d243b', '#0b1e33', '#0a192b', '#091524'];
+    var sb = Math.ceil((H - horizon) / seaC.length);
+    for (var q = 0; q < seaC.length; q++) px(0, horizon + q * sb, W, sb + 1, seaC[q]);
+    // блики волн
+    var R2 = rnd(99);
+    for (var w = 0; w < W * 0.45; w++) {
+      var wy = horizon + 2 + (R2() * (H - horizon - 2) | 0), wx = ((R2() * W) + t * (0.15 + (wy - horizon) / 120)) % W;
+      var len = 2 + (R2() * 5 | 0);
+      ctx.globalAlpha = 0.25 + 0.4 * (0.5 + 0.5 * Math.sin(t * 0.06 + w));
+      px(wx, wy, len, 1, '#3d7aa6');
+    }
+    // лунная дорожка
+    for (var m = horizon + 1; m < H; m += 2) {
+      var spread = 2 + (m - horizon) * 0.35, off = Math.sin(t * 0.08 + m) * 2;
+      ctx.globalAlpha = 0.5 - (m - horizon) / (H - horizon) * 0.35;
+      px(mx - spread / 2 + off, m, spread * (0.4 + 0.6 * Math.abs(Math.sin(m + t * 0.05))), 1, '#ffe7a3');
+    }
+    ctx.globalAlpha = 1;
+    // мол и маяк
+    var lx = Math.round(W * 0.82), base = horizon + 4;
+    px(Math.round(W * 0.68), base, W, 3, '#0a0d1c');
+    px(lx - 5, base - 4, 12, 4, '#0a0d1c');
+    for (var lh = 0; lh < 26; lh++) px(lx - 3 + (lh < 8 ? 0 : lh < 18 ? 0 : 1), base - 4 - lh, lh < 18 ? 6 : 4, 1, ((lh / 4 | 0) % 2) ? '#c94b4b' : '#e8e2d6');
+    px(lx - 3, base - 34, 7, 4, '#1c2238');
+    var on = 0.5 + 0.5 * Math.sin(t * 0.05);
+    px(lx - 1, base - 33, 3, 2, on > 0.3 ? '#ffd36b' : '#8a6a2a');
+    px(lx - 2, base - 36, 5, 2, '#0a0d1c');
+    // луч
+    var ang = Math.sin(t * 0.012) * 1.25 + Math.PI;
+    ctx.globalAlpha = 0.18 * on + 0.05;
+    ctx.fillStyle = '#ffd36b';
+    ctx.beginPath();
+    ctx.moveTo(lx + 0.5, base - 32);
+    ctx.lineTo(lx + Math.cos(ang - 0.08) * W, base - 32 + Math.sin(ang - 0.08) * W * 0.25);
+    ctx.lineTo(lx + Math.cos(ang + 0.08) * W, base - 32 + Math.sin(ang + 0.08) * W * 0.25);
+    ctx.closePath(); ctx.fill();
+    ctx.globalAlpha = 1;
+    // чайка
+    var gx = (t * 0.25) % (W + 40) - 20, gy = 52 + Math.sin(t * 0.03) * 4, f = (t / 12 | 0) % 2;
+    px(gx, gy, 1, 1, '#cfd6e6'); px(gx + 3, gy, 1, 1, '#cfd6e6');
+    px(gx + 1, gy + (f ? -1 : 1), 1, 1, '#cfd6e6'); px(gx + 2, gy + (f ? -1 : 1), 1, 1, '#cfd6e6');
+  }
+  function loop(ts) {
+    if (ts - last > 66) { t++; draw(); last = ts; }  // ~15 fps — «пиксельная» плавность
+    requestAnimationFrame(loop);
+  }
+  setup(); draw();
+  window.addEventListener('resize', function () { setup(); draw(); });
+  if (!reduce) requestAnimationFrame(loop);
+})();
+
+/* ---------- Карточки работ ---------- */
+(function () {
+  var box = document.getElementById('projects'), list = window.WORKS || [];
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  if (!list.length) { box.innerHTML = '<p style="color:var(--muted)">No projects yet — add them to works.js.</p>'; return; }
+  box.innerHTML = list.map(function (w, i) {
+    var tags = (w.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
+    var thumb = w.cover ? '<img src="works/' + encodeURI(w.folder) + '/' + encodeURI(w.cover) + '" alt="" loading="lazy">' : '<canvas data-seed="' + esc(w.title) + '" width="32" height="20"></canvas>';
+    return '<div class="reveal" style="transition-delay:' + (i % 3) * 90 + 'ms">' +
+      '<a class="project px-frame" href="works/' + encodeURI(w.folder) + '/">' +
+        '<div class="thumb">' + thumb + '<div class="play"><span>▶ OPEN</span></div></div>' +
+        '<div class="project-body">' +
+          '<div class="project-head"><h3>' + esc(w.title) + '</h3><span class="year">' + esc(w.year) + '</span></div>' +
+          (w.description ? '<p>' + esc(w.description) + '</p>' : '') +
+          (tags ? '<div class="tags">' + tags + '</div>' : '') +
+        '</div></a>' +
+      (w.code ? '<a class="code-link" href="' + esc(w.code) + '" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px">Source code ↗</a>' : '') +
+    '</div>';
+  }).join('');
+  // Пиксельная обложка, если своей картинки нет
+  var pals = [['#ffb547', '#43d1c4', '#1a2a4a'], ['#c58cff', '#ffb547', '#1d1a3a'], ['#43d1c4', '#ff6b6b', '#13283a'], ['#9be564', '#43d1c4', '#16261f']];
+  box.querySelectorAll('canvas[data-seed]').forEach(function (cv, idx) {
+    var s = cv.dataset.seed, h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+    var r = function () { h = (h * 1103515245 + 12345) & 0x7fffffff; return h / 0x7fffffff; };
+    var p = pals[Math.abs(h) % pals.length], c = cv.getContext('2d');
+    c.fillStyle = p[2]; c.fillRect(0, 0, 32, 20);
+    for (var k = 0; k < 14; k++) { c.fillStyle = 'rgba(255,255,255,' + (0.15 + r() * 0.4) + ')'; c.fillRect(r() * 32 | 0, r() * 11 | 0, 1, 1); }
+    c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(0, 16, 32, 4);
+    c.fillStyle = p[1]; c.fillRect(0, 16, 32, 1);
+    // симметричный спрайт 8x8 по центру
+    var ox = 12, oy = 7, grid = [];
+    for (var y = 0; y < 8; y++) { grid[y] = []; for (var x = 0; x < 4; x++) grid[y][x] = r() < (y === 0 || y === 7 ? 0.35 : 0.6); }
+    for (var y2 = 0; y2 < 8; y2++) for (var x2 = 0; x2 < 4; x2++) if (grid[y2][x2]) {
+      c.fillStyle = (y2 === 2 && x2 === 2) ? p[2] : (y2 > 5 ? p[1] : p[0]);
+      c.fillRect(ox + x2, oy + y2, 1, 1); c.fillRect(ox + 7 - x2, oy + y2, 1, 1);
+    }
+    c.fillStyle = '#ffffff'; c.fillRect(ox + 2, oy + 3, 1, 1); c.fillRect(ox + 5, oy + 3, 1, 1);
+  });
+})();
+
+/* ---------- Появление при прокрутке ---------- */
+(function () {
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  var bars = document.getElementById('bars');
+  if (reduce || !('IntersectionObserver' in window)) { bars.classList.remove('pending'); return; }
+  var vh = window.innerHeight;
+  els.forEach(function (el) { if (el.getBoundingClientRect().top > vh) el.classList.add('pre'); });
+  if (bars.getBoundingClientRect().top < vh) bars.classList.remove('pending');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.remove('pre');
+      if (e.target === bars) setTimeout(function () { bars.classList.remove('pending'); }, 200);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* ---------- Шапка при прокрутке ---------- */
+(function () {
+  var bar = document.getElementById('topbar');
+  function on() { bar.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', on, { passive: true }); on();
+})();
+
+/* ---------- Пиксельный переход при открытии работы ---------- */
+(function () {
+  var cv = document.getElementById('wipe'), ctx = cv.getContext('2d');
+  function cells() {
+    var cols = Math.ceil(window.innerWidth / 32), rows = Math.ceil(window.innerHeight / 32);
+    cv.width = cols; cv.height = rows; ctx.clearRect(0, 0, cols, rows);
+    var arr = []; for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) arr.push([x, y, Math.random() * 0.5 + (x / cols) * 0.5]);
+    arr.sort(function (a, b) { return a[2] - b[2]; });
+    return arr;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.project');
+    if (!a || reduce || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    var arr = cells(), start = performance.now(), dur = 420, href = a.getAttribute('href');
+    (function step(ts) {
+      var n = Math.min(arr.length, Math.ceil(arr.length * (ts - start) / dur));
+      for (var i = 0; i < n; i++) { ctx.fillStyle = i % 7 === 0 ? '#ffb547' : '#0b1220'; ctx.fillRect(arr[i][0], arr[i][1], 1, 1); }
+      if (n < arr.length) requestAnimationFrame(step);
+      else { ctx.fillStyle = '#0b1220'; ctx.fillRect(0, 0, cv.width, cv.height); location.href = href; }
+    })(start);
+  });
+  // При возврате «назад» убрать заливку
+  window.addEventListener('pageshow', function () { ctx.clearRect(0, 0, cv.width, cv.height); });
+})();
+
+/* ---------- Копирование почты ---------- */
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.target);
+    function done() { btn.textContent = 'COPIED!'; setTimeout(function () { btn.textContent = 'COPY'; }, 1500); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'PRESS CTRL+C'; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(el.textContent).then(done, fallback); else fallback();
+  });
+});
+</script>
 </body>
 </html>
