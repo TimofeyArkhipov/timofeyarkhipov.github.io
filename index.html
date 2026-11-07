@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your Name · Game Developer</title>
-<meta name="description" content="Frontend developer turned game developer from Odesa, Ukraine.">
+<title>Timofey Arkhipov · Frontend & Game Developer</title>
+<meta name="description" content="Timofey Arkhipov - frontend and game developer from Odesa, Ukraine. Websites, landing pages and browser games.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&family=Figtree:wght@400;500;600&display=swap">
@@ -205,10 +205,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
 <header class="top gutter" id="topbar">
   <div class="wrap">
-    <a class="logo" href="#home"><i></i>YOUR NAME</a>
+    <a class="logo" href="#home"><i></i>TIMOFEY ARKHIPOV</a>
     <nav aria-label="Sections">
       <a href="#about">About</a>
-      <a href="#work">Projects</a>
+      <a href="#games">Games</a>
+      <a href="#sites">Websites</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -220,13 +221,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="hero-inner gutter">
     <div class="wrap">
       <div class="eyebrow"><span>Odesa, Ukraine</span><span>UTC+2</span></div>
-      <h1>Your Name<span class="caret"></span></h1>
-      <p class="lead">Frontend developer turned game developer. I used to build interfaces for the web — now I build worlds you can play in.</p>
-      <div class="path" aria-label="Career path">
-        <span>HTML/CSS</span><b>→</b><span>React</span><b>→</b><span class="now">Game dev</span>
+      <h1>Timofey Arkhipov<span class="caret"></span></h1>
+      <p class="lead">Frontend and game developer. I build fast, responsive websites and browser games that run smoothly on any screen.</p>
+      <div class="path" aria-label="What I do">
+        <span class="now">Websites</span><b>+</b><span class="now">Browser games</span>
       </div>
       <div class="actions">
-        <a class="btn" href="#work">▶ Play my work</a>
+        <a class="btn" href="#games">▶ Play games</a>
+        <a class="btn ghost" href="#sites">View websites</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -238,57 +240,67 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap about-grid reveal">
       <div class="prose">
         <p class="sec-label">// 01 · About</p>
-        <h2>From pixels on a page to pixels in a game</h2>
-        <p>I started out hand-coding layouts, then spent years building React apps — design systems, dashboards, interactive pages. Along the way I kept sneaking animations and little games into every project.</p>
-        <p>So I made it official. Today I make games: gameplay programming, game feel, UI and tools. My frontend background means I care about responsiveness, clean UI and getting things to run smoothly in the browser and beyond.</p>
+        <h2>Pixels on a page and pixels in a game</h2>
+        <p>I build websites and landing pages from design to production: pixel-perfect, responsive layouts, animations and interactive elements, with a clean build setup.</p>
+        <p>I also make browser games with PixiJS and React: gameplay, game UI, sound and playable ads. Both sides help each other - games taught me to care about performance and feel, the web taught me to ship clean, maintainable code.</p>
       </div>
       <div class="card-stats px-frame" aria-label="Quick facts">
-        <div class="stat"><span class="k">CLASS</span><span class="v">Game Developer</span></div>
+        <div class="stat"><span class="k">CLASS</span><span class="v">Frontend &amp; Game Developer</span></div>
         <div class="stat"><span class="k">BASE</span><span class="v">Odesa, UA</span></div>
-        <div class="stat"><span class="k">PREV. CLASS</span><span class="v">Frontend / React</span></div>
+        <div class="stat"><span class="k">STACK</span><span class="v">JavaScript, React, PixiJS</span></div>
         <div class="stat"><span class="k">LANGUAGES</span><span class="v">English, Ukrainian, Russian</span></div>
         <div class="stat"><span class="k">STATUS</span><span class="v" style="color:var(--sea)">Open to work</span></div>
       </div>
     </div>
   </section>
 
-  <section class="block gutter" id="work">
+  <section class="block gutter" id="games">
     <div class="wrap">
       <div class="reveal">
-        <p class="sec-label">// 02 · Projects</p>
+        <p class="sec-label">// 02 · Games</p>
         <h2>Pick a level</h2>
       </div>
-      <div class="projects" id="projects"></div>
+      <div class="projects" data-type="game"></div>
+    </div>
+  </section>
+
+  <section class="block gutter" id="sites">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="sec-label">// 03 · Websites</p>
+        <h2>Landing pages &amp; websites</h2>
+      </div>
+      <div class="projects" data-type="site"></div>
     </div>
   </section>
 
   <section class="block gutter" id="skills">
     <div class="wrap">
       <div class="reveal">
-        <p class="sec-label">// 03 · Skills &amp; experience</p>
+        <p class="sec-label">// 04 · Skills &amp; experience</p>
         <h2>Character sheet</h2>
       </div>
       <div class="skills-grid">
         <div class="bars pending reveal" id="bars">
-          <div class="bar-row"><div class="top-line"><span>Unity / C#</span><span class="lvl">LV 7</span></div><div class="bar"><i style="--w:72%;--c:var(--amber)"></i></div></div>
-          <div class="bar-row"><div class="top-line"><span>Godot / GDScript</span><span class="lvl">LV 6</span></div><div class="bar"><i style="--w:60%;--c:var(--amber)"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>HTML, CSS / SCSS, animation</span><span class="lvl">LV 10</span></div><div class="bar"><i style="--w:96%"></i></div></div>
           <div class="bar-row"><div class="top-line"><span>JavaScript / TypeScript</span><span class="lvl">LV 9</span></div><div class="bar"><i style="--w:90%"></i></div></div>
           <div class="bar-row"><div class="top-line"><span>React</span><span class="lvl">LV 9</span></div><div class="bar"><i style="--w:88%"></i></div></div>
-          <div class="bar-row"><div class="top-line"><span>HTML &amp; CSS, animation</span><span class="lvl">LV 10</span></div><div class="bar"><i style="--w:96%"></i></div></div>
-          <div class="bar-row"><div class="top-line"><span>Pixel art &amp; Aseprite</span><span class="lvl">LV 5</span></div><div class="bar"><i style="--w:50%;--c:#c58cff"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>PixiJS, Canvas</span><span class="lvl">LV 7</span></div><div class="bar"><i style="--w:72%;--c:var(--amber)"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>Playable ads (HTML5)</span><span class="lvl">LV 7</span></div><div class="bar"><i style="--w:70%;--c:var(--amber)"></i></div></div>
+          <div class="bar-row"><div class="top-line"><span>Pug, Gulp, Vite, Git</span><span class="lvl">LV 8</span></div><div class="bar"><i style="--w:80%;--c:#c58cff"></i></div></div>
         </div>
         <div class="levels reveal" aria-label="Experience">
           <div class="level now">
             <div class="badge">LV 3</div>
-            <div><div class="when">2024 — NOW</div><div class="role">Game Developer</div><p class="desc">Gameplay programming, game UI and prototyping. Indie and freelance projects.</p></div>
+            <div><div class="when">2024 - NOW</div><div class="role">Frontend &amp; Game Developer</div><p class="desc">Browser games and playable ads on PixiJS, landing pages and websites.</p></div>
           </div>
           <div class="level">
             <div class="badge">LV 2</div>
-            <div><div class="when">2021 — 2024</div><div class="role">React Developer</div><p class="desc">Single-page apps, component libraries and animated interfaces.</p></div>
+            <div><div class="when">2021 - 2024</div><div class="role">React Developer</div><p class="desc">Single-page apps, component libraries and animated interfaces.</p></div>
           </div>
           <div class="level">
             <div class="badge">LV 1</div>
-            <div><div class="when">2019 — 2021</div><div class="role">HTML/CSS Developer</div><p class="desc">Pixel-perfect, responsive layouts from Figma designs.</p></div>
+            <div><div class="when">2019 - 2021</div><div class="role">HTML/CSS Developer</div><p class="desc">Pixel-perfect, responsive layouts from Figma designs.</p></div>
           </div>
         </div>
       </div>
@@ -297,19 +309,18 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
   <section class="block gutter" id="contact">
     <div class="wrap reveal">
-      <p class="sec-label">// 04 · Contact</p>
+      <p class="sec-label">// 05 · Contact</p>
       <h2>Player 2, join the game</h2>
       <div class="contact-box px-frame">
         <div class="contact-row"><span class="k">EMAIL</span><span class="v" id="c-email">you@example.com</span><button class="copy" type="button" data-target="c-email">COPY</button></div>
         <div class="contact-row"><span class="k">TELEGRAM</span><a class="v" href="https://t.me/your_handle" target="_blank" rel="noopener">@your_handle</a></div>
-        <div class="contact-row"><span class="k">GITHUB</span><a class="v" href="https://github.com/your-login" target="_blank" rel="noopener">github.com/your-login</a></div>
-        <div class="contact-row"><span class="k">ITCH.IO</span><a class="v" href="https://itch.io" target="_blank" rel="noopener">your-name.itch.io</a></div>
+        <div class="contact-row"><span class="k">GITHUB</span><a class="v" href="https://github.com/TimofeyArkhipov" target="_blank" rel="noopener">github.com/TimofeyArkhipov</a></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="gutter"><div class="wrap"><span>© 2026 YOUR NAME</span><span>MADE IN ODESA</span></div></footer>
+<footer class="gutter"><div class="wrap"><span>© 2026 TIMOFEY ARKHIPOV</span><span>MADE IN ODESA</span></div></footer>
 
 <canvas id="wipe" aria-hidden="true"></canvas>
 
@@ -420,15 +431,17 @@ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Карточки работ ---------- */
 (function () {
-  var box = document.getElementById('projects'), list = window.WORKS || [];
+  var all = window.WORKS || [];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  if (!list.length) { box.innerHTML = '<p style="color:var(--muted)">No projects yet — add them to works.js.</p>'; return; }
+  document.querySelectorAll('.projects[data-type]').forEach(function (box) {
+  var type = box.dataset.type, list = all.filter(function (w) { return (w.type || 'site') === type; });
+  if (!list.length) { box.closest('section').hidden = true; return; }
   box.innerHTML = list.map(function (w, i) {
     var tags = (w.tags || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
     var thumb = w.cover ? '<img src="works/' + encodeURI(w.folder) + '/' + encodeURI(w.cover) + '" alt="" loading="lazy">' : '<canvas data-seed="' + esc(w.title) + '" width="32" height="20"></canvas>';
     return '<div class="reveal" style="transition-delay:' + (i % 3) * 90 + 'ms">' +
       '<a class="project px-frame" href="works/' + encodeURI(w.folder) + '/">' +
-        '<div class="thumb">' + thumb + '<div class="play"><span>▶ OPEN</span></div></div>' +
+        '<div class="thumb">' + thumb + '<div class="play"><span>' + (type === 'game' ? '▶ PLAY' : 'OPEN ↗') + '</span></div></div>' +
         '<div class="project-body">' +
           '<div class="project-head"><h3>' + esc(w.title) + '</h3><span class="year">' + esc(w.year) + '</span></div>' +
           (w.description ? '<p>' + esc(w.description) + '</p>' : '') +
@@ -455,6 +468,7 @@ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       c.fillRect(ox + x2, oy + y2, 1, 1); c.fillRect(ox + 7 - x2, oy + y2, 1, 1);
     }
     c.fillStyle = '#ffffff'; c.fillRect(ox + 2, oy + 3, 1, 1); c.fillRect(ox + 5, oy + 3, 1, 1);
+  });
   });
 })();
 
