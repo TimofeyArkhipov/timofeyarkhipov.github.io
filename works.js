@@ -14,6 +14,15 @@ window.WORKS = [
   // ---------- Games ----------
   {
     type: "game",
+    folder: "tower-defense",
+    title: "Tower Defense",
+    description: "Campaign of 10 maps with crossing roads and up to 3 entries, timed waves, flying and armored enemies, bosses, 5-level tower upgrades. Fixed-step simulation separated from rendering. Mouse, keyboard and touch.",
+    tags: ["TypeScript", "PixiJS", "Vite"],
+    cover: "cover.jpg",
+    code: "https://github.com/TimofeyArkhipov/timofeyarkhipov.github.io/tree/main/sources/tower-defense"
+  },
+  {
+    type: "game",
     folder: "tetris",
     title: "Tetris",
     description: "Classic Tetris with ghost piece, lock delay, 7-bag randomizer and low-latency Web Audio sound. Plays on desktop and touch screens.",

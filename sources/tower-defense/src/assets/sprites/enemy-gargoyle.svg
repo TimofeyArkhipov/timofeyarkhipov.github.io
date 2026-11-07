@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="46" viewBox="0 0 58 46">
+  <!-- stone gargoyle, flying, faces right -->
+  <path d="M24 20 L10 6 L2 12 L8 16 L4 22 L12 22 L12 28 Z" fill="#6f7a86" stroke="#1e2329" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M34 20 L46 4 L56 10 L50 15 L55 21 L47 22 L48 28 Z" fill="#7f8b98" stroke="#1e2329" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M16 30 Q14 16 29 15 Q44 16 42 30 Q40 40 29 40 Q18 40 16 30 Z" fill="#8c98a5" stroke="#1e2329" stroke-width="2.5"/>
+  <path d="M20 24 Q24 18 30 18" fill="none" stroke="#b7c1cb" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M26 15 L24 8 L30 13 M36 15 L39 8 L33 13" fill="#c9cfd6" stroke="#1e2329" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="32" cy="25" r="2.6" fill="#ff5b3d"/>
+  <circle cx="38" cy="25" r="2.6" fill="#ff5b3d"/>
+  <path d="M30 33 Q35 36 40 32" fill="none" stroke="#1e2329" stroke-width="2" stroke-linecap="round"/>
+</svg>

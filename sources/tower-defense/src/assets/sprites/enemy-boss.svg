@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <!-- horned ogre, faces right -->
+  <ellipse cx="36" cy="64" rx="26" ry="6" fill="#000" opacity="0.3"/>
+  <path d="M22 16 L14 4 L28 12 Z M48 14 L60 4 L54 18 Z" fill="#f1e6c8" stroke="#24112e" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="18" y="50" width="12" height="12" rx="4" fill="#5b2a73" stroke="#24112e" stroke-width="2.5"/>
+  <rect x="42" y="50" width="12" height="12" rx="4" fill="#5b2a73" stroke="#24112e" stroke-width="2.5"/>
+  <path d="M10 40 Q8 12 36 12 Q64 12 62 40 Q60 56 36 56 Q12 56 10 40 Z" fill="#8e44ad" stroke="#24112e" stroke-width="3"/>
+  <path d="M18 26 Q24 16 36 16" fill="none" stroke="#b77bd1" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="40" cy="30" r="5" fill="#ffe14d" stroke="#24112e" stroke-width="2"/>
+  <circle cx="53" cy="30" r="5" fill="#ffe14d" stroke="#24112e" stroke-width="2"/>
+  <circle cx="41.5" cy="30.5" r="2.2" fill="#24112e"/>
+  <circle cx="54.5" cy="30.5" r="2.2" fill="#24112e"/>
+  <path d="M38 42 Q47 48 58 42" fill="#fff" stroke="#24112e" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M44 43 L45 46 M51 43 L50 46" stroke="#24112e" stroke-width="1.5"/>
+</svg>

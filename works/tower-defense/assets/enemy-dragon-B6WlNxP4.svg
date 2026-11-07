@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="92" height="72" viewBox="0 0 92 72">
+  <!-- red dragon, flying boss, faces right -->
+  <path d="M36 30 L18 4 L4 14 L14 20 L2 30 L16 32 L10 42 L30 40 Z" fill="#b8322a" stroke="#3a0b07" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M20 10 L26 34 M10 24 L28 37" stroke="#7d1d17" stroke-width="2"/>
+  <path d="M50 30 L66 2 L84 10 L74 16 L88 26 L72 28 L78 40 L56 40 Z" fill="#cf3d33" stroke="#3a0b07" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M66 8 L60 34 M80 22 L62 37" stroke="#8c231c" stroke-width="2"/>
+  <path d="M28 48 Q12 52 6 64 Q16 58 26 58" fill="none" stroke="#3a0b07" stroke-width="7" stroke-linecap="round"/>
+  <path d="M28 48 Q12 52 6 64 Q16 58 26 58" fill="none" stroke="#c4372e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 46 Q22 28 44 28 Q64 28 62 46 Q60 60 44 60 Q26 60 24 46 Z" fill="#d9473b" stroke="#3a0b07" stroke-width="3"/>
+  <path d="M32 50 Q44 58 56 50" fill="none" stroke="#f6b26b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M56 36 Q66 26 78 30 Q88 34 86 42 Q84 48 74 46 Q64 46 58 44 Z" fill="#e0574a" stroke="#3a0b07" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M66 30 L64 20 L71 28 M73 29 L76 19 L78 31" fill="#f1e6c8" stroke="#3a0b07" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="76" cy="36" r="3" fill="#ffe14d" stroke="#3a0b07" stroke-width="1.5"/>
+  <path d="M80 44 L82 47 L84 44" fill="#fff" stroke="#3a0b07" stroke-width="1"/>
+</svg>
