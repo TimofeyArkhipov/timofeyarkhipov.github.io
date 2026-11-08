@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  ::selection { background: #141414; color: #faf9f7; }
+  :focus-visible { outline: 2px solid #141414; outline-offset: 3px; }
+}
+
+@layer components {
+  .label { @apply text-[11px] font-medium uppercase tracking-label text-mute; }
+  .btn {
+    @apply inline-flex h-12 items-center justify-center rounded-full bg-ink px-7 text-sm font-medium text-paper transition;
+    @apply hover:bg-black/80 disabled:cursor-not-allowed disabled:bg-ink/25;
+  }
+  .rich p { @apply mb-4; }
+  .rich ul { @apply mb-4 list-disc pl-5; }
+  .rich strong { @apply font-medium text-ink; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+.rise { animation: rise .6s cubic-bezier(.2, .8, .2, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Timofey Arkhipov · Frontend & Game Developer</title>
-<meta name="description" content="Timofey Arkhipov - frontend and game developer from Odesa, Ukraine. Websites, landing pages and browser games.">
+<title>Timofey Arkhipov · Frontend Engineer</title>
+<meta name="description" content="Timofey Arkhipov - frontend engineer from Odesa, Ukraine. Websites, online stores and browser games.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Silkscreen&family=Figtree:wght@400;500;600&display=swap">
@@ -142,7 +142,6 @@ h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 
 .project p { margin: 0; color: var(--muted); font-size: 15.5px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .tag { font-family: var(--font-label); font-size: 10.5px; padding: 3px 7px; background: var(--bg); color: var(--sea); letter-spacing: .03em; }
-.code-link { font-size: 14px; margin-top: 4px; justify-self: start; }
 
 /* Навыки как статы персонажа */
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
@@ -220,7 +219,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="eyebrow"><span>Odesa, Ukraine</span><span>UTC+2</span></div>
       <h1>Timofey Arkhipov<span class="caret"></span></h1>
-      <p class="lead">Frontend and game developer. I build fast, responsive websites and browser games that run smoothly on any screen.</p>
+      <p class="lead">Frontend Engineer. I build fast, responsive websites, online stores and browser games that run smoothly on any screen.</p>
       <div class="path" aria-label="What I do">
         <span class="now">Websites</span><b>+</b><span class="now">Browser games</span>
       </div>
@@ -239,11 +238,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <div class="prose">
         <p class="sec-label">// 01 · About</p>
         <h2>Pixels on a page and pixels in a game</h2>
-        <p>Front-end developer with 5+ years of commercial experience. I build adaptive landing pages, React applications and dashboards with real-time data - from layout to business logic.</p>
+        <p>Front-end developer with 5+ years of commercial experience. I build online stores, React applications and dashboards with real-time data - from layout to business logic.</p>
         <p>The other half of my work is games: HTML5 slot games, browser games and playable ads on PixiJS. Games taught me to care about load time and a steady 60 FPS, the web taught me to ship clean, maintainable code.</p>
       </div>
       <div class="card-stats px-frame" aria-label="Quick facts">
-        <div class="stat"><span class="k">CLASS</span><span class="v">Frontend &amp; Game Developer</span></div>
+        <div class="stat"><span class="k">CLASS</span><span class="v">Frontend Engineer</span></div>
         <div class="stat"><span class="k">BASE</span><span class="v">Odesa, UA</span></div>
         <div class="stat"><span class="k">EXPERIENCE</span><span class="v">5+ years</span></div>
         <div class="stat"><span class="k">STACK</span><span class="v">JavaScript, TypeScript, React, PixiJS</span></div>
@@ -267,7 +266,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="reveal">
         <p class="sec-label">// 03 · Websites</p>
-        <h2>Landing pages &amp; websites</h2>
+        <h2>Websites &amp; online stores</h2>
       </div>
       <div class="projects" data-type="site"></div>
     </div>
@@ -284,7 +283,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <div class="skill-group"><h3>Layout</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SASS</span><span class="tag">BEM</span><span class="tag">CSS-in-JS</span><span class="tag">Material UI</span><span class="tag">Responsive</span></div></div>
           <div class="skill-group"><h3>JavaScript</h3><div class="tags"><span class="tag">JavaScript ES6+</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Redux</span><span class="tag">Redux Toolkit</span><span class="tag">Next.js</span><span class="tag">jQuery</span></div></div>
           <div class="skill-group game"><h3>Games</h3><div class="tags"><span class="tag">PixiJS</span><span class="tag">WebGL optimization</span><span class="tag">HTML5 slot games</span><span class="tag">Playable ads</span></div></div>
-          <div class="skill-group"><h3>Data</h3><div class="tags"><span class="tag">REST API</span><span class="tag">WebSockets</span><span class="tag">GraphQL</span><span class="tag">Chart.js</span></div></div>
+          <div class="skill-group"><h3>Data</h3><div class="tags"><span class="tag">REST API</span><span class="tag">WebSockets</span><span class="tag">GraphQL</span><span class="tag">Shopify Storefront API</span><span class="tag">Chart.js</span></div></div>
           <div class="skill-group"><h3>Tools</h3><div class="tags"><span class="tag">Webpack</span><span class="tag">Vite</span><span class="tag">Gulp</span><span class="tag">Git</span><span class="tag">Jest</span><span class="tag">Figma</span><span class="tag">Photoshop</span></div></div>
         </div>
         <div class="levels reveal" aria-label="Experience">
@@ -460,7 +459,6 @@ var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           (w.description ? '<p>' + esc(w.description) + '</p>' : '') +
           (tags ? '<div class="tags">' + tags + '</div>' : '') +
         '</div></a>' +
-      (w.code ? '<a class="code-link" href="' + esc(w.code) + '" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px">Source code ↗</a>' : '') +
     '</div>';
   }).join('');
   // Пиксельная обложка, если своей картинки нет

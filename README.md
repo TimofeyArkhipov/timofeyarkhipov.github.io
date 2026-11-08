@@ -2,16 +2,22 @@
 
 **Live:** https://timofeyarkhipov.github.io
 
-Websites and a few browser games. Each project in `works/` is a live build that opens straight in the browser.
+Frontend Engineer. Websites, online stores and browser games.
 
-## Featured
+## Skills
 
-**[Tetris](https://timofeyarkhipov.github.io/works/tetris/)** - React 18, Vite
-- Game logic in pure functions, with a frame-based engine outside React (no stale closures, minimal re-renders)
-- Low-latency sound through the Web Audio API (pre-decoded buffers)
-- 7-bag randomizer, wall kicks, lock delay, ghost piece, configurable key repeat
-- Responsive layout with on-screen controls for touch devices
+- **Layout:** HTML, CSS, SASS, BEM, CSS-in-JS, Material UI, Tailwind CSS, responsive design
+- **JavaScript:** ES6+, TypeScript, React, Redux, Redux Toolkit, Next.js, jQuery
+- **Games:** PixiJS, WebGL optimization, HTML5 slot games, playable ads
+- **Data & e-commerce:** REST API, WebSockets, GraphQL, Shopify Storefront API, Chart.js
+- **Tools:** Webpack, Vite, Gulp, Git, Jest, Figma, Photoshop
 
-## Stack
+## Structure
 
-HTML, CSS, JavaScript; the home page uses no frameworks.
+```
+index.html   home page (plain HTML, CSS, JavaScript, no frameworks)
+works.js     list of projects shown on the home page
+works/       built projects, each folder opens straight in the browser
+sources/     source code of projects that need a build step;
+             their build output goes into works/
+```
