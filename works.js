@@ -8,7 +8,7 @@
 //   type   - "game" or "site": which block the card goes to
 //   folder - path inside works/ to the folder with index.html
 //   cover  - image inside that folder for the card (optional)
-//   code   - link to the source code (optional)
+//   code   - link to the source code (optional, not shown on the site for now)
 
 window.WORKS = [
   // ---------- Games ----------
@@ -47,6 +47,15 @@ window.WORKS = [
   },
 
   // ---------- Websites ----------
+  {
+    type: "site",
+    folder: "shopify-store",
+    title: "Drift Store",
+    description: "Headless Shopify store: static catalog, variant picker and a cart on the Storefront Cart API with checkout on Shopify.",
+    tags: ["Next.js", "Shopify API", "GraphQL", "Tailwind"],
+    cover: "cover.jpg",
+    code: "https://github.com/TimofeyArkhipov/timofeyarkhipov.github.io/tree/main/sources/shopify-store"
+  },
   {
     type: "site",
     folder: "nftking",
